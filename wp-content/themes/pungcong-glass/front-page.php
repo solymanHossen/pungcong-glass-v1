@@ -48,45 +48,127 @@
                 Tailored Architectural Solutions
             </h2>
             <div class="h-1 w-20 bg-amber-600 mt-6 mx-auto"></div>
+            <p class="text-slate-600 mt-6 max-w-2xl mx-auto text-lg">
+                From precision aluminium works to elegant glass solutions, we deliver comprehensive services tailored to your needs.
+            </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 h-auto lg:h-[500px]">
-            <?php
-            $services_query = new WP_Query(array(
-                'post_type' => 'service',
-                'posts_per_page' => 4,
-                'orderby' => 'date',
-                'order' => 'ASC'
-            ));
+        <?php
+        $services_query = new WP_Query(array(
+            'post_type' => 'service',
+            'posts_per_page' => -1,
+            'orderby' => 'date',
+            'order' => 'ASC'
+        ));
 
-            if ($services_query->have_posts()) :
-                $idx = 0;
-                while ($services_query->have_posts()) : $services_query->the_post();
-                    $idx++;
-                    $is_large = ($idx === 1 || $idx === 4);
-                    $bg_class = $is_large ? 'lg:col-span-2 bg-slate-800' : 'bg-white';
-                    $icon_name = get_post_meta(get_the_ID(), 'icon_name', true);
-                    $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-            ?>
-            <div class="group relative overflow-hidden rounded-sm cursor-pointer <?php echo $bg_class; ?>" onclick="window.location.href='<?php the_permalink(); ?>'">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-40 group-hover:opacity-30" style="background-image: url('<?php echo $image_url; ?>')"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-90"></div>
+        if ($services_query->have_posts()) :
+            $total_services = $services_query->post_count;
+            $idx = 0;
+        ?>
+        
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 auto-rows-[280px]">
+            <?php
+            while ($services_query->have_posts()) : $services_query->the_post();
+                $idx++;
+                $icon_name = get_post_meta(get_the_ID(), 'icon_name', true);
+                $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                $features = get_post_meta(get_the_ID(), 'features', true);
                 
-                <div class="relative h-full p-8 flex flex-col justify-end z-10">
-                    <i data-lucide="<?php echo $icon_name ? $icon_name : 'layers'; ?>" class="w-10 h-10 text-amber-500 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-white mb-2"><?php the_title(); ?></h3>
-                    <p class="text-slate-300 text-sm mb-6 line-clamp-2"><?php echo get_the_content(); ?></p>
-                    <div class="flex items-center text-amber-500 text-xs font-bold tracking-widest uppercase group-hover:translate-x-2 transition-transform">
-                        Explore <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                // Dynamic grid sizing for bento effect
+                if ($idx === 1) {
+                    $grid_class = 'lg:col-span-7 lg:row-span-2'; // Large featured
+                } elseif ($idx === 2) {
+                    $grid_class = 'lg:col-span-5'; // Medium
+                } elseif ($idx === 3) {
+                    $grid_class = 'lg:col-span-5'; // Medium  
+                } elseif ($idx === 4) {
+                    $grid_class = 'lg:col-span-6'; // Half width
+                } else {
+                    $grid_class = 'lg:col-span-6'; // Half width for additional services
+                }
+            ?>
+            <a href="<?php the_permalink(); ?>" class="group relative overflow-hidden rounded-xl cursor-pointer <?php echo $grid_class; ?> block">
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('<?php echo esc_url($image_url); ?>')"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/20 group-hover:via-slate-900/40 transition-all duration-500"></div>
+                
+                <!-- Content -->
+                <div class="relative h-full p-6 md:p-8 flex flex-col justify-between z-10">
+                    <!-- Top: Icon & Badge -->
+                    <div class="flex items-start justify-between">
+                        <div class="w-14 h-14 bg-amber-600/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="<?php echo $icon_name ? esc_attr($icon_name) : 'layers'; ?>" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white text-xs font-medium">View Details</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom: Title, Description & Features -->
+                    <div>
+                        <h3 class="text-2xl <?php echo ($idx === 1) ? 'lg:text-3xl' : ''; ?> font-bold text-white mb-2 group-hover:text-amber-400 transition-colors"><?php the_title(); ?></h3>
+                        <p class="text-slate-300 text-sm mb-4 line-clamp-2 <?php echo ($idx === 1) ? 'lg:line-clamp-3 lg:text-base' : ''; ?>"><?php echo get_the_excerpt(); ?></p>
+                        
+                        <?php if (!empty($features) && is_array($features) && $idx === 1) : ?>
+                        <!-- Show features only for first large card -->
+                        <div class="hidden lg:flex flex-wrap gap-2 mb-4">
+                            <?php 
+                            $display_features = array_slice($features, 0, 4);
+                            foreach ($display_features as $feature) : ?>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full"><?php echo esc_html($feature); ?></span>
+                            <?php endforeach; ?>
+                            <?php if (count($features) > 4) : ?>
+                            <span class="bg-amber-600/80 text-white text-xs px-3 py-1 rounded-full">+<?php echo count($features) - 4; ?> more</span>
+                            <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <div class="flex items-center text-amber-400 text-xs font-bold tracking-widest uppercase group-hover:translate-x-2 transition-transform">
+                            Explore Service <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <!-- Decorative Corner -->
+                <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </a>
             <?php 
-                endwhile; 
-                wp_reset_postdata();
-            endif; 
+            endwhile; 
             ?>
         </div>
+        
+        <!-- Services Stats Bar -->
+        <div class="mt-12 bg-slate-900 rounded-xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="border-r border-slate-700 last:border-0">
+                <span class="text-3xl md:text-4xl font-bold text-amber-500"><?php echo $total_services; ?>+</span>
+                <p class="text-slate-400 text-sm mt-1">Services Offered</p>
+            </div>
+            <div class="border-r border-slate-700 last:border-0">
+                <span class="text-3xl md:text-4xl font-bold text-amber-500">15+</span>
+                <p class="text-slate-400 text-sm mt-1">Years Experience</p>
+            </div>
+            <div class="border-r border-slate-700 last:border-0">
+                <span class="text-3xl md:text-4xl font-bold text-amber-500">500+</span>
+                <p class="text-slate-400 text-sm mt-1">Projects Completed</p>
+            </div>
+            <div>
+                <span class="text-3xl md:text-4xl font-bold text-amber-500">100%</span>
+                <p class="text-slate-400 text-sm mt-1">Client Satisfaction</p>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="mt-12 text-center">
+            <a href="<?php echo esc_url(home_url('/services/')); ?>" class="inline-flex items-center gap-2 px-8 py-4 bg-amber-600 text-white font-bold uppercase tracking-widest text-xs rounded-sm hover:bg-amber-700 transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-amber-500/30">
+                View All Services <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+        
+        <?php 
+        wp_reset_postdata();
+        endif; 
+        ?>
     </div>
 </section>
 
