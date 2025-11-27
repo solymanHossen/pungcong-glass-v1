@@ -298,6 +298,15 @@
     </div>
 </section>
 
+<?php 
+// FAQ Section - Answers questions before contact to reduce friction
+get_template_part('template-parts/faq-section', null, array(
+    'show_header' => true,
+    'bg_class' => 'bg-white',
+    'section_id' => 'faq'
+)); 
+?>
+
 <!-- Integrated Map & Location Section -->
 <section class="relative h-[600px] w-full bg-slate-200">
     <!-- Full Width Map Iframe -->
