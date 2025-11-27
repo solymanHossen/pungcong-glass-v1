@@ -369,20 +369,25 @@
         <div class="grid md:grid-cols-2 gap-12 items-start">
             <div class="bg-white p-8 md:p-12 rounded-lg shadow-xl border-t-4 border-amber-600">
                 <h3 class="text-2xl font-bold text-slate-900 mb-6">Send us a Message</h3>
-                <form class="space-y-6" action="#" method="POST">
+                <form id="contact-form" class="space-y-6">
+                    <?php wp_nonce_field('puchong_contact_nonce', 'contact_nonce'); ?>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Name</label>
-                            <input required type="text" class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors" placeholder="Your Name" />
+                            <input required type="text" name="name" class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors" placeholder="Your Name" />
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Phone</label>
-                            <input required type="tel" class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors" placeholder="+60 12..." />
+                            <input required type="tel" name="phone" class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors" placeholder="+60 12..." />
                         </div>
                     </div>
                     <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Email (Optional)</label>
+                        <input type="email" name="email" class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors" placeholder="your@email.com" />
+                    </div>
+                    <div>
                         <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Service Needed</label>
-                        <select class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors">
+                        <select name="service" class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors">
                             <option>Aluminium Windows/Doors</option>
                             <option>Security Grill</option>
                             <option>Glass Partition/Shower</option>
@@ -391,10 +396,18 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Message / Measurements</label>
-                        <textarea required rows="5" class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors" placeholder="Please describe your project..."></textarea>
+                        <textarea required name="message" rows="5" class="w-full p-4 bg-slate-50 border border-slate-200 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600 rounded-sm transition-colors" placeholder="Please describe your project..."></textarea>
                     </div>
-                    <button type="submit" class="w-full py-4 text-sm px-8 rounded-none font-bold transition-all duration-300 transform hover:-translate-y-1 tracking-widest uppercase flex items-center justify-center gap-2 bg-amber-600 text-white hover:bg-amber-700 shadow-xl hover:shadow-amber-500/30">
-                        Request Free Quote
+                    <div id="form-message" class="hidden p-4 rounded-sm text-sm font-medium"></div>
+                    <button type="submit" id="submit-btn" class="w-full py-4 text-sm px-8 rounded-none font-bold transition-all duration-300 transform hover:-translate-y-1 tracking-widest uppercase flex items-center justify-center gap-2 bg-amber-600 text-white hover:bg-amber-700 shadow-xl hover:shadow-amber-500/30">
+                        <span class="btn-text">Request Free Quote</span>
+                        <span class="btn-loading hidden">
+                            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Sending...
+                        </span>
                     </button>
                 </form>
             </div>
@@ -438,5 +451,62 @@
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submit-btn');
+            const btnText = btn.querySelector('.btn-text');
+            const btnLoading = btn.querySelector('.btn-loading');
+            const formMessage = document.getElementById('form-message');
+            
+            // Show loading
+            btnText.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+            btn.disabled = true;
+            formMessage.classList.add('hidden');
+            
+            const formData = new FormData(contactForm);
+            formData.append('action', 'puchong_submit_contact');
+            
+            fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Reset loading
+                btnText.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
+                btn.disabled = false;
+                
+                formMessage.classList.remove('hidden');
+                
+                if (data.success) {
+                    formMessage.className = 'p-4 rounded-sm text-sm font-medium bg-green-100 text-green-800 border border-green-200';
+                    formMessage.textContent = data.data;
+                    contactForm.reset();
+                } else {
+                    formMessage.className = 'p-4 rounded-sm text-sm font-medium bg-red-100 text-red-800 border border-red-200';
+                    formMessage.textContent = data.data || 'An error occurred. Please try again.';
+                }
+            })
+            .catch(error => {
+                btnText.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
+                btn.disabled = false;
+                
+                formMessage.classList.remove('hidden');
+                formMessage.className = 'p-4 rounded-sm text-sm font-medium bg-red-100 text-red-800 border border-red-200';
+                formMessage.textContent = 'An error occurred. Please try again.';
+            });
+        });
+    }
+});
+</script>
 
 <?php get_footer(); ?>
