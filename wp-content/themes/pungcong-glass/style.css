@@ -1,0 +1,15 @@
+/*
+Theme Name: Puchong Glass
+Theme URI: http://example.com/puchong-glass
+Author: GitHub Copilot
+Author URI: http://example.com
+Description: A custom theme for Puchong Glass Aluminium and Grill.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: puchong-glass
+*/
+
+body {
+  font-family: "Inter", sans-serif;
+}
