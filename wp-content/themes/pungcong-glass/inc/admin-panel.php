@@ -758,9 +758,19 @@ class Puchong_Glass_Admin {
      * AJAX: Save contact submission
      */
     public function save_contact_submission() {
-        // Verify nonce for front-end
-        if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'puchong_contact_nonce')) {
-            wp_send_json_error('Invalid security token');
+        // For public contact forms, we use a simple referer check instead of strict nonce
+        // This allows non-logged-in users to submit the form
+        $referer = wp_get_referer();
+        if (!$referer || strpos($referer, home_url()) === false) {
+            // Also check if nonce is provided (for logged-in users)
+            if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'puchong_contact_nonce')) {
+                wp_send_json_error('Invalid request source');
+            }
+        }
+        
+        // Validate required fields
+        if (empty($_POST['name']) || empty($_POST['phone']) || empty($_POST['message'])) {
+            wp_send_json_error('Please fill in all required fields');
         }
         
         global $wpdb;
@@ -770,16 +780,16 @@ class Puchong_Glass_Admin {
             'name' => sanitize_text_field($_POST['name']),
             'phone' => sanitize_text_field($_POST['phone']),
             'email' => sanitize_email($_POST['email'] ?? ''),
-            'service' => sanitize_text_field($_POST['service']),
+            'service' => sanitize_text_field($_POST['service'] ?? ''),
             'message' => sanitize_textarea_field($_POST['message']),
             'is_read' => 0,
             'created_at' => current_time('mysql')
         ));
         
         if ($result) {
-            wp_send_json_success('Message sent successfully!');
+            wp_send_json_success('Thank you! Your message has been sent successfully. We will contact you soon.');
         } else {
-            wp_send_json_error('Failed to save message');
+            wp_send_json_error('Failed to save message. Please try again.');
         }
     }
     
