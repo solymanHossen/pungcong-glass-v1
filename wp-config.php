@@ -88,7 +88,20 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
+/**
+ * Dynamic Site URL and Home URL for ngrok/tunneling support.
+ * This ensures the site works on both localhost and public ngrok URLs.
+ */
+if ( isset( $_SERVER['HTTP_HOST'] ) ) {
+	// Fix for ngrok/reverse proxy SSL termination
+	if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ) {
+		$_SERVER['HTTPS'] = 'on';
+	}
 
+	$proto = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ) ? 'https' : 'http';
+	define( 'WP_HOME', $proto . '://' . $_SERVER['HTTP_HOST'] );
+	define( 'WP_SITEURL', $proto . '://' . $_SERVER['HTTP_HOST'] );
+}
 
 /* That's all, stop editing! Happy publishing. */
 
