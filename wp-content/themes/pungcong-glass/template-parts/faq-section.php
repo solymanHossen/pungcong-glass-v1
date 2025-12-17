@@ -1,6 +1,7 @@
 <?php
 /**
  * Modern FAQ Section Template Part
+ * With Schema.org FAQPage structured data for SEO
  * 
  * Usage: get_template_part('template-parts/faq-section');
  * Or with args: get_template_part('template-parts/faq-section', null, array('show_header' => true));
@@ -42,11 +43,17 @@ $faqs = array(
         'answer' => 'We are based in Puchong, Selangor and serve the entire Klang Valley including Kuala Lumpur, Petaling Jaya, Subang Jaya, Shah Alam, and surrounding areas. For larger projects, we also take on assignments throughout Peninsular Malaysia.'
     )
 );
+
+// Generate FAQ Schema for SEO
+if (function_exists('puchong_get_faq_schema')) {
+    $faq_schema = puchong_get_faq_schema($faqs);
+    echo '<script type="application/ld+json">' . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+}
 ?>
 
-<section id="<?php echo esc_attr($args['section_id']); ?>" class="py-24 lg:py-32 <?php echo esc_attr($args['bg_class']); ?> relative overflow-hidden">
+<section id="<?php echo esc_attr($args['section_id']); ?>" class="py-24 lg:py-32 <?php echo esc_attr($args['bg_class']); ?> relative overflow-hidden" aria-labelledby="faq-heading">
     <!-- Luxury Background Elements -->
-    <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-amber-50/50 to-transparent"></div>
         <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-slate-100/80 to-transparent"></div>
         <!-- Elegant geometric pattern -->
@@ -58,11 +65,11 @@ $faqs = array(
         <?php if ($args['show_header']) : ?>
         <div class="mb-16 lg:mb-20 text-center max-w-3xl mx-auto">
             <span class="inline-flex items-center gap-2 font-bold tracking-[0.2em] text-xs uppercase mb-4 text-amber-600">
-                <span class="w-8 h-px bg-amber-600"></span>
+                <span class="w-8 h-px bg-amber-600" aria-hidden="true"></span>
                 Questions & Answers
-                <span class="w-8 h-px bg-amber-600"></span>
+                <span class="w-8 h-px bg-amber-600" aria-hidden="true"></span>
             </span>
-            <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mb-6">
+            <h2 id="faq-heading" class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mb-6">
                 Frequently Asked <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-500">Questions</span>
             </h2>
             <p class="text-slate-500 text-lg md:text-xl font-light leading-relaxed">
@@ -73,22 +80,22 @@ $faqs = array(
         
         <div class="max-w-4xl mx-auto">
             <!-- FAQ Accordion -->
-            <div class="space-y-4" id="faq-accordion">
+            <div class="space-y-4" id="faq-accordion" role="region" aria-label="Frequently Asked Questions">
                 <?php foreach ($faqs as $index => $faq) : ?>
-                <div class="faq-item group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100 hover:border-amber-200/50 overflow-hidden" data-faq-index="<?php echo $index; ?>">
+                <div class="faq-item group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100 hover:border-amber-200/50 overflow-hidden" data-faq-index="<?php echo $index; ?>" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <!-- Question Button -->
                     <button class="faq-trigger w-full text-left p-6 md:p-8 flex items-center justify-between gap-6 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2" aria-expanded="false" aria-controls="faq-answer-<?php echo $index; ?>">
                         <div class="flex items-center gap-5">
                             <!-- Number Badge -->
-                            <span class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-slate-100 to-slate-50 group-hover:from-amber-100 group-hover:to-amber-50 rounded-xl flex items-center justify-center font-bold text-slate-400 group-hover:text-amber-600 transition-all duration-300 text-sm md:text-base shadow-sm">
+                            <span class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-slate-100 to-slate-50 group-hover:from-amber-100 group-hover:to-amber-50 rounded-xl flex items-center justify-center font-bold text-slate-400 group-hover:text-amber-600 transition-all duration-300 text-sm md:text-base shadow-sm" aria-hidden="true">
                                 <?php echo str_pad($index + 1, 2, '0', STR_PAD_LEFT); ?>
                             </span>
-                            <h3 class="text-base md:text-lg font-semibold text-slate-800 group-hover:text-slate-900 transition-colors duration-300 leading-snug">
+                            <h3 class="text-base md:text-lg font-semibold text-slate-800 group-hover:text-slate-900 transition-colors duration-300 leading-snug" itemprop="name">
                                 <?php echo esc_html($faq['question']); ?>
                             </h3>
                         </div>
                         <!-- Toggle Icon -->
-                        <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-slate-100 group-hover:bg-amber-600 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm">
+                        <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-slate-100 group-hover:bg-amber-600 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm" aria-hidden="true">
                             <svg class="faq-icon w-5 h-5 md:w-6 md:h-6 text-slate-500 group-hover:text-white transition-all duration-300 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path class="faq-icon-plus" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12M6 12h12"></path>
                                 <path class="faq-icon-minus hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h12"></path>
@@ -97,10 +104,10 @@ $faqs = array(
                     </button>
                     
                     <!-- Answer Panel -->
-                    <div id="faq-answer-<?php echo $index; ?>" class="faq-content overflow-hidden transition-all duration-500 ease-out" style="max-height: 0;">
+                    <div id="faq-answer-<?php echo $index; ?>" class="faq-content overflow-hidden transition-all duration-500 ease-out" style="max-height: 0;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                         <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0">
                             <div class="pl-15 md:pl-17 ml-0 md:ml-[68px] border-l-2 border-amber-200 pl-6">
-                                <p class="text-slate-600 leading-relaxed text-base md:text-lg font-light">
+                                <p class="text-slate-600 leading-relaxed text-base md:text-lg font-light" itemprop="text">
                                     <?php echo esc_html($faq['answer']); ?>
                                 </p>
                             </div>

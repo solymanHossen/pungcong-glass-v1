@@ -3,6 +3,9 @@
 // Include Admin Panel
 require_once get_template_directory() . '/inc/admin-panel.php';
 
+// Include SEO Functions (Modern Malaysia Local SEO)
+require_once get_template_directory() . '/inc/seo-functions.php';
+
 function puchong_glass_scripts() {
     // Tailwind CSS (Development CDN)
     wp_enqueue_script('tailwindcss', 'https://cdn.tailwindcss.com', array(), '3.4.0', false);

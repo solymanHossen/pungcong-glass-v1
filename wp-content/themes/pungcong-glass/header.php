@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> itemscope itemtype="https://schema.org/WebPage">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <?php wp_head(); ?>
 </head>
 <?php 
@@ -11,12 +11,16 @@ $is_front = is_front_page();
 ?>
 <body <?php body_class('font-sans text-slate-800 bg-white selection:bg-amber-200 min-h-screen flex flex-col'); ?>>
 
-<nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 <?php echo $is_front ? 'bg-transparent py-6' : 'bg-white/95 backdrop-blur-md shadow-lg py-3'; ?>" data-is-front="<?php echo $is_front ? 'true' : 'false'; ?>">
+<!-- Skip to main content for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-amber-600 text-white px-4 py-2 z-[100] rounded">Skip to main content</a>
+
+<header role="banner">
+<nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 <?php echo $is_front ? 'bg-transparent py-6' : 'bg-white/95 backdrop-blur-md shadow-lg py-3'; ?>" data-is-front="<?php echo $is_front ? 'true' : 'false'; ?>" aria-label="Main navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
     <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <a href="<?php echo home_url(); ?>" class="flex items-center gap-3 cursor-pointer group">
-            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg group-hover:scale-110 transition-transform">P</div>
+        <a href="<?php echo home_url(); ?>" class="flex items-center gap-3 cursor-pointer group" itemprop="url" aria-label="Puchong Glass - Home">
+            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">P</div>
             <div>
-                <h1 class="font-bold text-lg leading-none tracking-tight nav-text <?php echo $is_front ? 'text-white' : 'text-slate-900'; ?>">PUCHONG</h1>
+                <span class="font-bold text-lg leading-none tracking-tight nav-text <?php echo $is_front ? 'text-white' : 'text-slate-900'; ?>" itemprop="name">PUCHONG</span>
                 <p class="text-[10px] tracking-[0.2em] uppercase font-bold nav-subtext <?php echo $is_front ? 'text-slate-300' : 'text-amber-600'; ?>">Glass & Aluminium</p>
             </div>
         </a>
@@ -46,7 +50,7 @@ $is_front = is_front_page();
         ?>
 
         <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center gap-8">
+        <div class="hidden md:flex items-center gap-8" role="menubar">
             <?php foreach ($nav_items as $item) : 
                 $is_active = ($current_slug === $item['slug']);
                 
@@ -202,4 +206,13 @@ $is_front = is_front_page();
         });
     });
 </script>
+</header>
 
+<?php 
+// Display breadcrumbs on inner pages
+if (!is_front_page() && function_exists('puchong_breadcrumbs')) {
+    puchong_breadcrumbs();
+}
+?>
+
+<main id="main-content" role="main">
