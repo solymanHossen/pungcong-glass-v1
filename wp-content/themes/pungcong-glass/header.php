@@ -16,7 +16,7 @@ $is_front = is_front_page();
 
 <header role="banner">
 <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 <?php echo $is_front ? 'bg-transparent py-6' : 'bg-white/95 backdrop-blur-md shadow-lg py-3'; ?>" data-is-front="<?php echo $is_front ? 'true' : 'false'; ?>" aria-label="Main navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
-    <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+    <div class="container mx-auto px-4 flex justify-between items-center">
         <a href="<?php echo home_url(); ?>" class="flex items-center gap-3 cursor-pointer group" itemprop="url" aria-label="Puchong Glass - Home">
             <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">P</div>
             <div>

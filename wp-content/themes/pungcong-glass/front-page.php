@@ -308,59 +308,83 @@ get_template_part('template-parts/faq-section', null, array(
 ?>
 
 <!-- Integrated Map & Location Section -->
-<section class="relative h-[600px] w-full bg-slate-200">
-    <!-- Full Width Map Iframe -->
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.146747530686!2d101.60945761475704!3d3.0553752977751996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb3b2e9ade33b%3A0x47f0779bbd297c10!2sPuchong%20Glass%20Aluminium%20and%20Grill!5e0!3m2!1sen!2smy!4v1625637284921!5m2!1sen!2smy" 
-        width="100%" 
-        height="100%" 
-        style="border: 0; filter: grayscale(0.3);" 
-        allowFullScreen="" 
-        loading="lazy"
-        title="Puchong Glass Location"
-    ></iframe>
+    <section class="relative w-full bg-slate-50 flex flex-col md:block md:h-[650px] sm:pb-0 pb-6">
+        
+        <!-- Map Container -->
+        <div class="w-full h-[400px] md:h-full md:absolute md:inset-0">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.146747530686!2d101.60945761475704!3d3.0553752977751996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb3b2e9ade33b%3A0x47f0779bbd297c10!2sPuchong%20Glass%20Aluminium%20and%20Grill!5e0!3m2!1sen!2smy!4v1625637284921!5m2!1sen!2smy" 
+                width="100%" 
+                height="100%" 
+                style="border: 0; filter: grayscale(100%) contrast(1.2) brightness(0.9);" 
+                allowFullScreen="" 
+                loading="lazy"
+                title="Puchong Glass Location"
+                class="w-full h-full object-cover"
+            ></iframe>
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/10 to-transparent pointer-events-none"></div>
+        </div>
+        <div class="relative  w-full md:absolute md:top-1/2 md:left-20 md:-translate-y-1/2 md:max-w-md z-10 -mt-6 md:mt-0 px-4 md:px-0">
+            <div class="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-2xl font-bold text-slate-900">Visit Our Showroom</h3>
+                    <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">Open Today</span>
+                </div>
+                
+                <div class="space-y-8">
+                    <!-- Address Item -->
+                    <div class="flex items-start gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center shrink-0 group-hover:bg-amber-100 transition-colors duration-300">
+                            <i data-lucide="map-pin" class="text-amber-600 w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900 text-sm mb-1">Our Location</h4>
+                            <p class="text-slate-600 leading-relaxed text-sm">
+                                Lot 13, Puchong Glass Aluminium & Grill,<br/>
+                                Bt 13, Jalan Jurutera, Kampung Seri Aman,<br/>
+                                47100 Puchong, Selangor.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hours Item -->
+                    <div class="flex items-start gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center shrink-0 group-hover:bg-amber-100 transition-colors duration-300">
+                            <i data-lucide="clock" class="text-amber-600 w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900 text-sm mb-1">Opening Hours</h4>
+                            <p class="text-slate-600 text-sm">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                            <p class="text-amber-600 text-sm font-medium mt-1">Sunday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Item -->
+                    <div class="flex items-start gap-4 group">
+                        <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center shrink-0 group-hover:bg-amber-100 transition-colors duration-300">
+                            <i data-lucide="phone" class="text-amber-600 w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900 text-sm mb-1">Get in Touch</h4>
+                            <p class="text-slate-600 text-sm font-medium">+60 12-345 6789</p>
+                            <p class="text-slate-400 text-xs mt-1">Available for WhatsApp</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Floating Contact Card Overlay -->
-    <div class="absolute top-1/2 left-4 md:left-20 -translate-y-1/2 bg-white p-8 md:p-10 shadow-2xl rounded-sm max-w-md w-full border-l-4 border-amber-600">
-        <h3 class="text-2xl font-bold text-slate-900 mb-6">Visit Our Showroom</h3>
-        <div class="space-y-6">
-            <div class="flex items-start gap-4">
-                <i data-lucide="map-pin" class="text-amber-600 w-6 h-6 shrink-0 mt-1"></i>
-                <div>
-                    <h4 class="font-bold text-slate-800 text-sm uppercase mb-1">Address</h4>
-                    <p class="text-slate-600 leading-relaxed text-sm">
-                        Lot 13, Puchong Glass Aluminium & Grill,<br/>
-                        Bt 13, Jalan Jurutera, Kampung Seri Aman,<br/>
-                        47100 Puchong, Selangor.
-                    </p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4">
-                <i data-lucide="clock" class="text-amber-600 w-6 h-6 shrink-0 mt-1"></i>
-                <div>
-                    <h4 class="font-bold text-slate-800 text-sm uppercase mb-1">Opening Hours</h4>
-                    <p class="text-slate-600 text-sm">Mon - Sat: 9:00 AM - 6:00 PM</p>
-                    <p class="text-amber-600 text-sm font-semibold">Sunday: Closed</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4">
-                <i data-lucide="phone" class="text-amber-600 w-6 h-6 shrink-0 mt-1"></i>
-                <div>
-                    <h4 class="font-bold text-slate-800 text-sm uppercase mb-1">Contact</h4>
-                    <p class="text-slate-600 text-sm">+60 12-345 6789</p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                    <a href="https://maps.google.com?q=Lot+13+Puchong+Glass+Aluminium+and+Grill" target="_blank" class="flex-1 px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl">
+                        <i data-lucide="navigation" class="w-4 h-4"></i>
+                        Get Directions
+                    </a>
+                    <a href="https://wa.me/60123456789" target="_blank" class="flex-1 px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 bg-amber-500 text-white hover:bg-amber-600 shadow-lg shadow-amber-500/30 hover:shadow-amber-500/40">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="mt-8 flex gap-3">
-            <a href="https://maps.google.com?q=Lot+13+Puchong+Glass+Aluminium+and+Grill" target="_blank" class="flex-1 px-8 py-3 rounded-none font-bold transition-all duration-300 transform hover:-translate-y-1 tracking-widest uppercase text-xs flex items-center justify-center gap-2 bg-amber-600 text-white hover:bg-amber-700 shadow-xl hover:shadow-amber-500/30">
-                Get Directions
-            </a>
-            <a href="https://wa.me/60123456789" target="_blank" class="px-8 py-3 rounded-none font-bold transition-all duration-300 transform hover:-translate-y-1 tracking-widest uppercase text-xs flex items-center justify-center gap-2 bg-transparent border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white">
-                WhatsApp
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
 <?php 
 // Reusable Contact Section
