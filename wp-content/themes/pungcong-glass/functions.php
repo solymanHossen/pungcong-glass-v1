@@ -13,6 +13,12 @@ function puchong_glass_scripts() {
     // Lucide Icons
     wp_enqueue_script('lucide', 'https://unpkg.com/lucide@latest', array(), '1.0.0', true);
     
+    // Swiper CSS
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+    
+    // Swiper JS
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
+
     // Main Styles
     wp_enqueue_style('puchong-glass-style', get_stylesheet_uri());
 

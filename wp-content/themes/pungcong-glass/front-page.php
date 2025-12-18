@@ -265,92 +265,149 @@
             <div class="h-1 w-20 bg-amber-600 mt-6 mx-auto"></div>
         </div>
         
-        <div class="relative max-w-4xl mx-auto">
+        <div class="relative w-full">
             <!-- Carousel Wrapper -->
-            <div class="overflow-hidden" id="testimonial-carousel">
-                <div class="flex transition-transform duration-500 ease-out" id="testimonial-track">
+            <div class="swiper testimonial-swiper overflow-hidden pb-12 px-4">
+                <div class="swiper-wrapper">
                     <!-- Testimonial 1 -->
-                    <div class="w-full flex-shrink-0 px-4">
-                        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-center mx-auto max-w-3xl relative">
-                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
                                 <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
                             </div>
-                            <div class="flex justify-center text-amber-500 mb-6 mt-4">
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <div class="mt-8">
+                                <div class="flex justify-center text-amber-500 mb-6">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Absolutely thrilled with our new glass partition. The team was professional, punctual, and the quality is outstanding. Highly recommended!"</p>
                             </div>
-                            <p class="text-slate-700 text-lg md:text-xl mb-8 italic leading-relaxed">"Absolutely thrilled with our new glass partition. The team was professional, punctual, and the quality is outstanding. Highly recommended!"</p>
-                            <div class="flex flex-col items-center justify-center">
-                                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-xl mb-3 border-2 border-amber-100">JL</div>
-                                <h4 class="font-bold text-slate-900 text-lg">Jason Lim</h4>
-                                <p class="text-slate-500 text-sm">Bandar Puteri, Puchong</p>
+                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
+                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">JL</div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-slate-900 text-base">Jason Lim</h4>
+                                    <p class="text-slate-500 text-xs">Bandar Puteri, Puchong</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Testimonial 2 -->
-                    <div class="w-full flex-shrink-0 px-4">
-                        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-center mx-auto max-w-3xl relative">
-                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
                                 <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
                             </div>
-                            <div class="flex justify-center text-amber-500 mb-6 mt-4">
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <div class="mt-8">
+                                <div class="flex justify-center text-amber-500 mb-6">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Great service from start to finish. They gave good advice on the type of aluminium windows for my house. Installation was quick and clean."</p>
                             </div>
-                            <p class="text-slate-700 text-lg md:text-xl mb-8 italic leading-relaxed">"Great service from start to finish. They gave good advice on the type of aluminium windows for my house. Installation was quick and clean."</p>
-                            <div class="flex flex-col items-center justify-center">
-                                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-xl mb-3 border-2 border-amber-100">SA</div>
-                                <h4 class="font-bold text-slate-900 text-lg">Sarah Ahmad</h4>
-                                <p class="text-slate-500 text-sm">Kinrara, Puchong</p>
+                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
+                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">SA</div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-slate-900 text-base">Sarah Ahmad</h4>
+                                    <p class="text-slate-500 text-xs">Kinrara, Puchong</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Testimonial 3 -->
-                    <div class="w-full flex-shrink-0 px-4">
-                        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-center mx-auto max-w-3xl relative">
-                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
                                 <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
                             </div>
-                            <div class="flex justify-center text-amber-500 mb-6 mt-4">
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <div class="mt-8">
+                                <div class="flex justify-center text-amber-500 mb-6">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Puchong Glass transformed our balcony with their frameless glass railing. It looks modern and safe. Very happy with the result."</p>
                             </div>
-                            <p class="text-slate-700 text-lg md:text-xl mb-8 italic leading-relaxed">"Puchong Glass transformed our balcony with their frameless glass railing. It looks modern and safe. Very happy with the result."</p>
-                            <div class="flex flex-col items-center justify-center">
-                                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-xl mb-3 border-2 border-amber-100">MT</div>
-                                <h4 class="font-bold text-slate-900 text-lg">Michael Tan</h4>
-                                <p class="text-slate-500 text-sm">Puchong Utama</p>
+                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
+                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">MT</div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-slate-900 text-base">Michael Tan</h4>
+                                    <p class="text-slate-500 text-xs">Puchong Utama</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
+                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
+                            </div>
+                            <div class="mt-8">
+                                <div class="flex justify-center text-amber-500 mb-6">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Professional team and excellent workmanship. The sliding doors they installed are smooth and solid. Will definitely use them again."</p>
+                            </div>
+                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
+                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">DK</div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-slate-900 text-base">David Khoo</h4>
+                                    <p class="text-slate-500 text-xs">Bandar Sunway</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 5 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
+                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
+                            </div>
+                            <div class="mt-8">
+                                <div class="flex justify-center text-amber-500 mb-6">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Highly recommended for any glass work. They replaced my shopfront glass very quickly after it cracked. Reasonable price too."</p>
+                            </div>
+                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
+                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">RC</div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-slate-900 text-base">Rachel Chong</h4>
+                                    <p class="text-slate-500 text-xs">Puchong Jaya</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination !-bottom-0"></div>
+                
+                <!-- Navigation -->
+                <div class="swiper-button-next !text-amber-600 after:!text-2xl !w-10 !h-10 !bg-white/80 !rounded-full !shadow-lg hover:!bg-white transition-all"></div>
+                <div class="swiper-button-prev !text-amber-600 after:!text-2xl !w-10 !h-10 !bg-white/80 !rounded-full !shadow-lg hover:!bg-white transition-all"></div>
             </div>
-            
-            <!-- Navigation Buttons -->
-            <button class="absolute top-1/2 -left-4 md:-left-16 -translate-y-1/2 bg-white/10 hover:bg-amber-600 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300 group" id="prev-testimonial">
-                <i data-lucide="chevron-left" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
-            </button>
-            <button class="absolute top-1/2 -right-4 md:-right-16 -translate-y-1/2 bg-white/10 hover:bg-amber-600 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300 group" id="next-testimonial">
-                <i data-lucide="chevron-right" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
-            </button>
-            
-            <!-- Dots Indicator -->
-            <div class="flex justify-center gap-3 mt-8" id="testimonial-dots">
-                <button class="w-3 h-3 rounded-full bg-amber-600 transition-all duration-300" aria-label="Slide 1"></button>
-                <button class="w-3 h-3 rounded-full bg-slate-700 hover:bg-amber-600/50 transition-all duration-300" aria-label="Slide 2"></button>
-                <button class="w-3 h-3 rounded-full bg-slate-700 hover:bg-amber-600/50 transition-all duration-300" aria-label="Slide 3"></button>
-            </div>
+
         </div>
     </div>
 </section>
@@ -483,70 +540,38 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(statsSection);
     }
 
-    // Testimonial Carousel Logic
-    const track = document.getElementById('testimonial-track');
-    const slides = track ? Array.from(track.children) : [];
-    const nextButton = document.getElementById('next-testimonial');
-    const prevButton = document.getElementById('prev-testimonial');
-    const dotsNav = document.getElementById('testimonial-dots');
-    const dots = dotsNav ? Array.from(dotsNav.children) : [];
-
-    if (track && slides.length > 0) {
-        let currentSlideIndex = 0;
-
-        const updateSlide = (index) => {
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            track.style.transform = 'translateX(-' + (slideWidth * index) + 'px)';
-            
-            // Update dots
-            dots.forEach(dot => {
-                dot.classList.remove('bg-amber-600');
-                dot.classList.add('bg-slate-700');
-            });
-            if(dots[index]) {
-                dots[index].classList.remove('bg-slate-700');
-                dots[index].classList.add('bg-amber-600');
-            }
-            currentSlideIndex = index;
-        };
-
-        // Next Button
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                let nextIndex = currentSlideIndex + 1;
-                if (nextIndex >= slides.length) nextIndex = 0;
-                updateSlide(nextIndex);
-            });
-        }
-
-        // Prev Button
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                let prevIndex = currentSlideIndex - 1;
-                if (prevIndex < 0) prevIndex = slides.length - 1;
-                updateSlide(prevIndex);
-            });
-        }
-
-        // Dots
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                updateSlide(index);
-            });
-        });
-
-        // Auto play
-        setInterval(() => {
-            let nextIndex = currentSlideIndex + 1;
-            if (nextIndex >= slides.length) nextIndex = 0;
-            updateSlide(nextIndex);
-        }, 5000);
-        
-        // Handle resize
-        window.addEventListener('resize', () => {
-             updateSlide(currentSlideIndex);
-        });
-    }
+    // Testimonial Swiper Logic
+    const swiper = new Swiper(".testimonial-swiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+    });
 });
 </script>
 
