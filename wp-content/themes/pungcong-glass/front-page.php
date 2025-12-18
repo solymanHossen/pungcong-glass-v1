@@ -257,158 +257,120 @@
 </section>
 
 <!-- Client Testimonials Section -->
-<section id="testimonials" class="py-24 bg-slate-900">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <span class="text-amber-600 font-bold tracking-[0.2em] text-xs uppercase mb-3 block">Client Stories</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-white">Trusted by Puchong Residents</h2>
-            <div class="h-1 w-20 bg-amber-600 mt-6 mx-auto"></div>
+<section id="testimonials" class="relative py-24 bg-slate-900 overflow-hidden">
+    
+    <!-- Background Decorations -->
+    <div class="blob w-96 h-96 bg-amber-600/20 rounded-full absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+    <div class="blob w-96 h-96 bg-blue-600/10 rounded-full absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Header Section -->
+        <div class="text-center mb-20 max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
+                <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                <span class="text-amber-500 font-bold tracking-widest text-xs uppercase">Client Stories</span>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Trusted by <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Puchong</span> Residents
+            </h2>
+            
+            <p class="text-slate-400 text-lg leading-relaxed max-w-2xl mx-auto">
+                Don't just take our word for it. Here is what our neighbors in Puchong have to say about our glass and aluminium workmanship.
+            </p>
         </div>
         
-        <div class="relative w-full">
-            <!-- Carousel Wrapper -->
-            <div class="swiper testimonial-swiper overflow-hidden pb-12 px-4">
+        <!-- Slider Section -->
+        <div class="relative w-full px-4 md:px-8">
+            <div class="swiper testimonial-swiper !pb-16 !overflow-visible">
                 <div class="swiper-wrapper">
-                    <!-- Testimonial 1 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
-                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
-                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
-                            </div>
-                            <div class="mt-8">
-                                <div class="flex justify-center text-amber-500 mb-6">
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                </div>
-                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Absolutely thrilled with our new glass partition. The team was professional, punctual, and the quality is outstanding. Highly recommended!"</p>
-                            </div>
-                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
-                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">JL</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-slate-900 text-base">Jason Lim</h4>
-                                    <p class="text-slate-500 text-xs">Bandar Puteri, Puchong</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
-                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
-                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
-                            </div>
-                            <div class="mt-8">
-                                <div class="flex justify-center text-amber-500 mb-6">
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                </div>
-                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Great service from start to finish. They gave good advice on the type of aluminium windows for my house. Installation was quick and clean."</p>
-                            </div>
-                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
-                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">SA</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-slate-900 text-base">Sarah Ahmad</h4>
-                                    <p class="text-slate-500 text-xs">Kinrara, Puchong</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 3 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
-                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
-                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
-                            </div>
-                            <div class="mt-8">
-                                <div class="flex justify-center text-amber-500 mb-6">
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                </div>
-                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Puchong Glass transformed our balcony with their frameless glass railing. It looks modern and safe. Very happy with the result."</p>
-                            </div>
-                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
-                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">MT</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-slate-900 text-base">Michael Tan</h4>
-                                    <p class="text-slate-500 text-xs">Puchong Utama</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $testimonials_query = new WP_Query(array(
+                        'post_type' => 'testimonial',
+                        'posts_per_page' => -1,
+                        'orderby' => 'date',
+                        'order' => 'DESC'
+                    ));
 
-                    <!-- Testimonial 4 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
-                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
-                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
+                    if ($testimonials_query->have_posts()) :
+                        while ($testimonials_query->have_posts()) : $testimonials_query->the_post();
+                            $location = get_post_meta(get_the_ID(), 'client_location', true);
+                            $initials = get_post_meta(get_the_ID(), 'client_initials', true);
+                            $rating = get_post_meta(get_the_ID(), 'rating', true);
+                            // Random rotation for quote icon to match design variety
+                            $rotations = ['rotate-3', '-rotate-2', 'rotate-1', '-rotate-3', 'rotate-2'];
+                            $rotation = $rotations[array_rand($rotations)];
+                    ?>
+                    <!-- Testimonial Item -->
+                    <div class="swiper-slide h-auto">
+                        <div class="testimonial-card h-full bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-white/10 relative flex flex-col">
+                            <!-- Quote Icon -->
+                            <div class="absolute -top-6 right-8 w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/30 transform <?php echo $rotation; ?>">
+                                <i data-lucide="quote" class="w-7 h-7 text-white fill-white"></i>
                             </div>
-                            <div class="mt-8">
-                                <div class="flex justify-center text-amber-500 mb-6">
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                </div>
-                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Professional team and excellent workmanship. The sliding doors they installed are smooth and solid. Will definitely use them again."</p>
-                            </div>
-                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
-                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">DK</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-slate-900 text-base">David Khoo</h4>
-                                    <p class="text-slate-500 text-xs">Bandar Sunway</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Testimonial 5 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-xl text-center mx-auto relative h-full flex flex-col justify-between border border-slate-100">
-                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg z-10">
-                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
+                            <!-- Stars -->
+                            <div class="flex gap-1 mb-6">
+                                <?php for($i=0; $i<$rating; $i++): ?>
+                                <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
+                                <?php endfor; ?>
                             </div>
-                            <div class="mt-8">
-                                <div class="flex justify-center text-amber-500 mb-6">
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+
+                            <!-- Text -->
+                            <blockquote class="flex-grow mb-8">
+                                <p class="text-slate-700 text-lg font-medium leading-relaxed">
+                                    "<?php echo get_the_content(); ?>"
+                                </p>
+                            </blockquote>
+
+                            <!-- User Info -->
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-100 mt-auto">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-white shadow-sm flex items-center justify-center text-slate-600 font-bold text-lg">
+                                    <?php echo esc_html($initials); ?>
                                 </div>
-                                <p class="text-slate-600 text-base italic leading-relaxed mb-6">"Highly recommended for any glass work. They replaced my shopfront glass very quickly after it cracked. Reasonable price too."</p>
-                            </div>
-                            <div class="flex items-center justify-center gap-4 pt-6 border-t border-slate-100">
-                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-lg border-2 border-amber-100">RC</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-slate-900 text-base">Rachel Chong</h4>
-                                    <p class="text-slate-500 text-xs">Puchong Jaya</p>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-base"><?php the_title(); ?></h4>
+                                    <div class="flex items-center gap-1 text-slate-500 text-xs font-medium">
+                                        <i data-lucide="map-pin" class="w-3 h-3"></i>
+                                        <?php echo esc_html($location); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php 
+                        endwhile; 
+                        wp_reset_postdata();
+                    endif; 
+                    ?>
+
                 </div>
                 
                 <!-- Pagination -->
-                <div class="swiper-pagination !-bottom-0"></div>
-                
-                <!-- Navigation -->
-                <div class="swiper-button-next !text-amber-600 after:!text-2xl !w-10 !h-10 !bg-white/80 !rounded-full !shadow-lg hover:!bg-white transition-all"></div>
-                <div class="swiper-button-prev !text-amber-600 after:!text-2xl !w-10 !h-10 !bg-white/80 !rounded-full !shadow-lg hover:!bg-white transition-all"></div>
-            </div>
+                <div class="swiper-pagination"></div>
 
+                <!-- Navigation Arrows -->
+                <div class="swiper-button-prev !hidden md:!flex !w-12 !h-12 !bg-slate-800 hover:!bg-amber-600 !text-white !rounded-full !shadow-lg border border-slate-700 !-left-4 lg:!-left-16 transition-all after:!text-lg"></div>
+                <div class="swiper-button-next !hidden md:!flex !w-12 !h-12 !bg-slate-800 hover:!bg-amber-600 !text-white !rounded-full !shadow-lg border border-slate-700 !-right-4 lg:!-right-16 transition-all after:!text-lg"></div>
+            </div>
         </div>
+
+        <!-- Trust Badges -->
+        <div class="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+            <div class="flex items-center gap-2 text-white">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                <span class="font-semibold">Licensed</span>
+            </div>
+            <div class="flex items-center gap-2 text-white">
+                <i data-lucide="award" class="w-6 h-6"></i>
+                <span class="font-semibold">5-Star Rated</span>
+            </div>
+            <div class="flex items-center gap-2 text-white">
+                <i data-lucide="thumbs-up" class="w-6 h-6"></i>
+                <span class="font-semibold">10+ Years Experience</span>
+            </div>
+        </div>
+
     </div>
 </section>
 

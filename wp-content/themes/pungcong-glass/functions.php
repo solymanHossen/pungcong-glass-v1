@@ -71,6 +71,18 @@ function puchong_glass_register_cpt() {
         'hierarchical' => true,
         'show_admin_column' => true,
     ));
+
+    // Testimonials
+    register_post_type('testimonial', array(
+        'labels' => array(
+            'name' => 'Testimonials',
+            'singular_name' => 'Testimonial',
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'supports' => array('title', 'editor', 'custom-fields'),
+        'menu_icon' => 'dashicons-format-quote',
+    ));
 }
 add_action('init', 'puchong_glass_register_cpt');
 
@@ -159,6 +171,63 @@ function puchong_glass_seed_data() {
         }
     }
     } // End if empty existing services
+
+    // --- Seed Testimonials ---
+    $existing_testimonials = get_posts(array('post_type' => 'testimonial', 'numberposts' => 1));
+    if (empty($existing_testimonials)) {
+        $testimonials_data = [
+            [
+                'name' => "Jason Lim",
+                'location' => "Bandar Puteri, Puchong",
+                'quote' => "Absolutely thrilled with our new glass partition. The team was professional, punctual, and the quality is outstanding. Highly recommended!",
+                'initials' => "JL",
+                'rating' => 5
+            ],
+            [
+                'name' => "Sarah Ahmad",
+                'location' => "Kinrara, Puchong",
+                'quote' => "Great service from start to finish. They gave good advice on the type of aluminium windows for my house. Installation was quick and clean.",
+                'initials' => "SA",
+                'rating' => 5
+            ],
+            [
+                'name' => "Michael Tan",
+                'location' => "Puchong Utama",
+                'quote' => "Puchong Glass transformed our balcony with their frameless glass railing. It looks modern and safe. Very happy with the result.",
+                'initials' => "MT",
+                'rating' => 5
+            ],
+            [
+                'name' => "David Khoo",
+                'location' => "Bandar Sunway",
+                'quote' => "Professional team and excellent workmanship. The sliding doors they installed are smooth and solid. Will definitely use them again.",
+                'initials' => "DK",
+                'rating' => 5
+            ],
+            [
+                'name' => "Rachel Chong",
+                'location' => "Puchong Jaya",
+                'quote' => "Highly recommended for any glass work. They replaced my shopfront glass very quickly after it cracked. Reasonable price too.",
+                'initials' => "RC",
+                'rating' => 5
+            ]
+        ];
+
+        foreach ($testimonials_data as $t) {
+            $post_id = wp_insert_post(array(
+                'post_title' => $t['name'],
+                'post_content' => $t['quote'],
+                'post_type' => 'testimonial',
+                'post_status' => 'publish',
+            ));
+
+            if ($post_id) {
+                update_post_meta($post_id, 'client_location', $t['location']);
+                update_post_meta($post_id, 'client_initials', $t['initials']);
+                update_post_meta($post_id, 'rating', $t['rating']);
+            }
+        }
+    }
 
     // --- Seed Projects ---
     $projects_data = [
