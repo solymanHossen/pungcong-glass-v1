@@ -138,26 +138,6 @@
             ?>
         </div>
         
-        <!-- Services Stats Bar -->
-        <div class="mt-12 bg-slate-900 rounded-xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="border-r border-slate-700 last:border-0">
-                <span class="text-3xl md:text-4xl font-bold text-amber-500"><?php echo $total_services; ?>+</span>
-                <p class="text-slate-400 text-sm mt-1">Services Offered</p>
-            </div>
-            <div class="border-r border-slate-700 last:border-0">
-                <span class="text-3xl md:text-4xl font-bold text-amber-500">15+</span>
-                <p class="text-slate-400 text-sm mt-1">Years Experience</p>
-            </div>
-            <div class="border-r border-slate-700 last:border-0">
-                <span class="text-3xl md:text-4xl font-bold text-amber-500">500+</span>
-                <p class="text-slate-400 text-sm mt-1">Projects Completed</p>
-            </div>
-            <div>
-                <span class="text-3xl md:text-4xl font-bold text-amber-500">100%</span>
-                <p class="text-slate-400 text-sm mt-1">Client Satisfaction</p>
-            </div>
-        </div>
-        
         <!-- CTA -->
         <div class="mt-12 text-center">
             <a href="<?php echo esc_url(home_url('/services/')); ?>" class="inline-flex items-center gap-2 px-8 py-4 bg-amber-600 text-white font-bold uppercase tracking-widest text-xs rounded-sm hover:bg-amber-700 transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-amber-500/30">
@@ -169,6 +149,64 @@
         wp_reset_postdata();
         endif; 
         ?>
+    </div>
+</section>
+
+<!-- Work Process Section -->
+<section id="process" class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="text-amber-600 font-bold tracking-[0.2em] text-xs uppercase mb-3 block">How We Work</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-900">Simple 4-Step Process</h2>
+            <div class="h-1 w-20 bg-amber-600 mt-6 mx-auto"></div>
+        </div>
+        
+        <div class="relative">
+            <!-- Connecting Line (Desktop) -->
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2 z-0"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                <!-- Step 1 -->
+                <div class="bg-white p-6 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-slate-50 rounded-full flex items-center justify-center border-2 border-amber-600 mb-6 relative z-10 group-hover:bg-amber-600 transition-colors duration-300">
+                        <i data-lucide="message-square" class="w-8 h-8 text-amber-600 group-hover:text-white transition-colors duration-300"></i>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">1</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Consultation</h3>
+                    <p class="text-slate-600 text-sm">We discuss your vision, requirements, and budget to tailor the perfect solution.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-white p-6 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-slate-50 rounded-full flex items-center justify-center border-2 border-amber-600 mb-6 relative z-10 group-hover:bg-amber-600 transition-colors duration-300">
+                        <i data-lucide="ruler" class="w-8 h-8 text-amber-600 group-hover:text-white transition-colors duration-300"></i>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">2</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Measurement</h3>
+                    <p class="text-slate-600 text-sm">Our experts visit your site for precise measurements and technical assessment.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-white p-6 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-slate-50 rounded-full flex items-center justify-center border-2 border-amber-600 mb-6 relative z-10 group-hover:bg-amber-600 transition-colors duration-300">
+                        <i data-lucide="hammer" class="w-8 h-8 text-amber-600 group-hover:text-white transition-colors duration-300"></i>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">3</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Installation</h3>
+                    <p class="text-slate-600 text-sm">Professional installation by our skilled team with minimal disruption.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="bg-white p-6 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-slate-50 rounded-full flex items-center justify-center border-2 border-amber-600 mb-6 relative z-10 group-hover:bg-amber-600 transition-colors duration-300">
+                        <i data-lucide="check-circle-2" class="w-8 h-8 text-amber-600 group-hover:text-white transition-colors duration-300"></i>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">4</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Finishing</h3>
+                    <p class="text-slate-600 text-sm">Final quality checks and cleanup to ensure everything is perfect.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -214,6 +252,105 @@
                 wp_reset_postdata();
             endif; 
             ?>
+        </div>
+    </div>
+</section>
+
+<!-- Client Testimonials Section -->
+<section id="testimonials" class="py-24 bg-slate-900">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="text-amber-600 font-bold tracking-[0.2em] text-xs uppercase mb-3 block">Client Stories</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-white">Trusted by Puchong Residents</h2>
+            <div class="h-1 w-20 bg-amber-600 mt-6 mx-auto"></div>
+        </div>
+        
+        <div class="relative max-w-4xl mx-auto">
+            <!-- Carousel Wrapper -->
+            <div class="overflow-hidden" id="testimonial-carousel">
+                <div class="flex transition-transform duration-500 ease-out" id="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-center mx-auto max-w-3xl relative">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
+                            </div>
+                            <div class="flex justify-center text-amber-500 mb-6 mt-4">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <p class="text-slate-700 text-lg md:text-xl mb-8 italic leading-relaxed">"Absolutely thrilled with our new glass partition. The team was professional, punctual, and the quality is outstanding. Highly recommended!"</p>
+                            <div class="flex flex-col items-center justify-center">
+                                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-xl mb-3 border-2 border-amber-100">JL</div>
+                                <h4 class="font-bold text-slate-900 text-lg">Jason Lim</h4>
+                                <p class="text-slate-500 text-sm">Bandar Puteri, Puchong</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-center mx-auto max-w-3xl relative">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
+                            </div>
+                            <div class="flex justify-center text-amber-500 mb-6 mt-4">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <p class="text-slate-700 text-lg md:text-xl mb-8 italic leading-relaxed">"Great service from start to finish. They gave good advice on the type of aluminium windows for my house. Installation was quick and clean."</p>
+                            <div class="flex flex-col items-center justify-center">
+                                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-xl mb-3 border-2 border-amber-100">SA</div>
+                                <h4 class="font-bold text-slate-900 text-lg">Sarah Ahmad</h4>
+                                <p class="text-slate-500 text-sm">Kinrara, Puchong</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-center mx-auto max-w-3xl relative">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-white fill-current"></i>
+                            </div>
+                            <div class="flex justify-center text-amber-500 mb-6 mt-4">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <p class="text-slate-700 text-lg md:text-xl mb-8 italic leading-relaxed">"Puchong Glass transformed our balcony with their frameless glass railing. It looks modern and safe. Very happy with the result."</p>
+                            <div class="flex flex-col items-center justify-center">
+                                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold text-xl mb-3 border-2 border-amber-100">MT</div>
+                                <h4 class="font-bold text-slate-900 text-lg">Michael Tan</h4>
+                                <p class="text-slate-500 text-sm">Puchong Utama</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <button class="absolute top-1/2 -left-4 md:-left-16 -translate-y-1/2 bg-white/10 hover:bg-amber-600 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300 group" id="prev-testimonial">
+                <i data-lucide="chevron-left" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+            </button>
+            <button class="absolute top-1/2 -right-4 md:-right-16 -translate-y-1/2 bg-white/10 hover:bg-amber-600 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300 group" id="next-testimonial">
+                <i data-lucide="chevron-right" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+            </button>
+            
+            <!-- Dots Indicator -->
+            <div class="flex justify-center gap-3 mt-8" id="testimonial-dots">
+                <button class="w-3 h-3 rounded-full bg-amber-600 transition-all duration-300" aria-label="Slide 1"></button>
+                <button class="w-3 h-3 rounded-full bg-slate-700 hover:bg-amber-600/50 transition-all duration-300" aria-label="Slide 2"></button>
+                <button class="w-3 h-3 rounded-full bg-slate-700 hover:bg-amber-600/50 transition-all duration-300" aria-label="Slide 3"></button>
+            </div>
         </div>
     </div>
 </section>
@@ -269,17 +406,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-12 pt-8 border-t border-slate-800 flex gap-12">
-                    <div>
-                        <span class="text-4xl font-bold text-white block">15+</span>
-                        <span class="text-amber-500 text-xs uppercase tracking-wider">Years Experience</span>
-                    </div>
-                    <div>
-                        <span class="text-4xl font-bold text-white block">500+</span>
-                        <span class="text-amber-500 text-xs uppercase tracking-wider">Happy Homes</span>
-                    </div>
-                </div>
             </div>
             
             <div class="relative">
@@ -297,6 +423,132 @@
         </div>
     </div>
 </section>
+
+<!-- Stats Counter Section -->
+<section class="py-16 bg-amber-600 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-amber-500/30">
+            <div class="p-4">
+                <span class="block text-5xl md:text-6xl font-bold text-white mb-2 counter" data-target="15">0</span>
+                <span class="text-amber-100 uppercase tracking-widest text-sm font-semibold">Years Experience</span>
+            </div>
+            <div class="p-4">
+                <span class="block text-5xl md:text-6xl font-bold text-white mb-2 counter" data-target="500">0</span>
+                <span class="text-amber-100 uppercase tracking-widest text-sm font-semibold">Projects Completed</span>
+            </div>
+            <div class="p-4">
+                <span class="block text-5xl md:text-6xl font-bold text-white mb-2 counter" data-target="450">0</span>
+                <span class="text-amber-100 uppercase tracking-widest text-sm font-semibold">Happy Clients</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target + '+';
+                }
+            };
+            updateCount();
+        });
+    };
+
+    // Intersection Observer to trigger animation when in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.counter').closest('section');
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+
+    // Testimonial Carousel Logic
+    const track = document.getElementById('testimonial-track');
+    const slides = track ? Array.from(track.children) : [];
+    const nextButton = document.getElementById('next-testimonial');
+    const prevButton = document.getElementById('prev-testimonial');
+    const dotsNav = document.getElementById('testimonial-dots');
+    const dots = dotsNav ? Array.from(dotsNav.children) : [];
+
+    if (track && slides.length > 0) {
+        let currentSlideIndex = 0;
+
+        const updateSlide = (index) => {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = 'translateX(-' + (slideWidth * index) + 'px)';
+            
+            // Update dots
+            dots.forEach(dot => {
+                dot.classList.remove('bg-amber-600');
+                dot.classList.add('bg-slate-700');
+            });
+            if(dots[index]) {
+                dots[index].classList.remove('bg-slate-700');
+                dots[index].classList.add('bg-amber-600');
+            }
+            currentSlideIndex = index;
+        };
+
+        // Next Button
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                let nextIndex = currentSlideIndex + 1;
+                if (nextIndex >= slides.length) nextIndex = 0;
+                updateSlide(nextIndex);
+            });
+        }
+
+        // Prev Button
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                let prevIndex = currentSlideIndex - 1;
+                if (prevIndex < 0) prevIndex = slides.length - 1;
+                updateSlide(prevIndex);
+            });
+        }
+
+        // Dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                updateSlide(index);
+            });
+        });
+
+        // Auto play
+        setInterval(() => {
+            let nextIndex = currentSlideIndex + 1;
+            if (nextIndex >= slides.length) nextIndex = 0;
+            updateSlide(nextIndex);
+        }, 5000);
+        
+        // Handle resize
+        window.addEventListener('resize', () => {
+             updateSlide(currentSlideIndex);
+        });
+    }
+});
+</script>
 
 <?php 
 // FAQ Section - Answers questions before contact to reduce friction
