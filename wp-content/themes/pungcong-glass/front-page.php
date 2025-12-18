@@ -263,7 +263,7 @@
     <div class="blob w-96 h-96 bg-amber-600/20 rounded-full absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
     <div class="blob w-96 h-96 bg-blue-600/10 rounded-full absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 
-    <div class="container mx-auto px-4 relative z-10">
+    <div class="container mx-auto px-4 relative z-10 ">
         <!-- Header Section -->
         <div class="text-center mb-20 max-w-3xl mx-auto">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
@@ -350,8 +350,12 @@
                 <div class="swiper-pagination"></div>
 
                 <!-- Navigation Arrows -->
-                <div class="swiper-button-prev !hidden md:!flex !w-12 !h-12 !bg-slate-800 hover:!bg-amber-600 !text-white !rounded-full !shadow-lg border border-slate-700 !-left-4 lg:!-left-16 transition-all after:!text-lg"></div>
-                <div class="swiper-button-next !hidden md:!flex !w-12 !h-12 !bg-slate-800 hover:!bg-amber-600 !text-white !rounded-full !shadow-lg border border-slate-700 !-right-4 lg:!-right-16 transition-all after:!text-lg"></div>
+                <div class="swiper-button-prev !hidden md:!flex !w-14 !h-14 !bg-slate-800/80 hover:!bg-amber-600 !text-white !rounded-full !backdrop-blur-md !border !border-white/10 !shadow-2xl hover:!shadow-amber-500/30 !-left-6 lg:!-left-20 transition-all duration-300 hover:scale-110 items-center justify-center after:!content-none group">
+                    <i data-lucide="chevron-left" class="w-6 h-6 group-hover:-translate-x-0.5 transition-transform"></i>
+                </div>
+                <div class="swiper-button-next !hidden md:!flex !w-14 !h-14 !bg-slate-800/80 hover:!bg-amber-600 !text-white !rounded-full !backdrop-blur-md !border !border-white/10 !shadow-2xl hover:!shadow-amber-500/30 !-right-6 lg:!-right-20 transition-all duration-300 hover:scale-110 items-center justify-center after:!content-none group">
+                    <i data-lucide="chevron-right" class="w-6 h-6 group-hover:translate-x-0.5 transition-transform"></i>
+                </div>
             </div>
         </div>
 
